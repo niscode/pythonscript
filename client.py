@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding: utf-8
 # 【latest】2022-08-26 created by Imura-san
 
