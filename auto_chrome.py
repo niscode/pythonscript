@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-#ライブラリ読み込み
+# selenium   4.7.2
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
 import time
 import argparse
 
@@ -14,6 +16,7 @@ id = "CA00" + args.id
 
 # カメラ(マイク)の使用を許可しますか」ダイアログを回避
 options = webdriver.ChromeOptions()
+# options.add_argument("--headless")# オプションを指定
 options.add_argument("--use-fake-ui-for-media-stream")# オプションを指定
 
 # Chrome/Chromiumの立ち上げ
@@ -23,9 +26,13 @@ driver=webdriver.Chrome(options=options)
 driver.get('https://ignis2.ca-platform.org/login')
 
 # キー入力
-# driver.find_element_by_xpath('//*[@id="name"]').send_keys("CA001")
 driver.find_element(By.XPATH, '//*[@id="name"]').send_keys(id)
 driver.find_element(By.XPATH, '//*[@id="password"]').send_keys(id)
+
+### orin固有の設定
+# 5秒待機して、マイク入力デバイスを選択   2番目のoptionタグを選択状態にする
+time.sleep(5)
+Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_index(1)
 
 # ログインボタン入力
 driver.find_element(By.XPATH, '//*[@name="btn"]').click()
