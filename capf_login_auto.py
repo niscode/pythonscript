@@ -16,7 +16,7 @@ id = "CA00" + args.id
 
 # カメラ(マイク)の使用を許可しますか」ダイアログを回避
 options = webdriver.ChromeOptions()
-#options.add_argument("--headless")# オプションを指定
+options.add_argument("--headless")# オプションを指定
 options.add_argument("--use-fake-ui-for-media-stream")# オプションを指定
 
 # Chrome/Chromiumの立ち上げ
@@ -32,13 +32,18 @@ driver.find_element(By.XPATH, '//*[@id="password"]').send_keys(id)
 ### orin固有の設定
 # input_device = "Poly Sync 20-M Mono"
 input_device = "Poly Sync 20-M Multichannel"
-output_device = "Poly Sync 20-M Analog Stereo"
-# 5秒待機して、audioデバイスを選択  input/output_deviceを選択状態にする
+output_device1 = "Poly Sync 20-M Analog Stereo"
+output_device2 = "Poly Sync 20-M Digital Stereo (IEC958)"
+
+# 待機して、audioデバイスを選択  input/output_deviceを選択状態にする
 time.sleep(5)
 # Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_index(1)
 Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_visible_text(input_device)
-Select(driver.find_element(By.XPATH, '//*[@id="deviceIdSpk"]')).select_by_visible_text(output_device)
-
+try:
+	Select(driver.find_element(By.XPATH, '//*[@id="deviceIdSpk"]')).select_by_visible_text(output_device1)
+#except NotFoundOutputDeviceError as e:
+except:
+	Select(driver.find_element(By.XPATH, '//*[@id="deviceIdSpk"]')).select_by_visible_text(output_device2)
 
 # ログインボタン入力
 driver.find_element(By.XPATH, '//*[@name="btn"]').click()

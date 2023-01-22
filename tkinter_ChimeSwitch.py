@@ -2,13 +2,46 @@
 # -*- coding: utf-8 -*-
 # for Linux
 
-import keyboard
+# import keyboard
+import tkinter as tk
+import matplotlib
+
 import ctypes
 import sys
 import socket
 import select
 import time
 from datetime import datetime, timedelta
+
+root = tk.Tk()
+# root.option_add('*font', ('', 14))
+canvas = tk.Canvas(root, borderwidth=0)
+frame = tk.Frame(canvas)
+
+
+
+def keypress(event):
+    renderkey()
+    print(renderkey())
+
+    # global count
+    if event.keysym == 'unknown':
+        F13_pushed = 1
+        # count += 1
+        print("[*] F13 pressed.")
+        serversoc.send(msg)
+        lastCommu = datetime.now()
+        # try :
+        #     if (count % 2 == 1):
+        #         print("一回のプッシュで複数回いかれてます？")
+                
+        # except :
+        #     print('Serverとの通信に失敗しました - 01。再接続します :', datetime.now())
+        #     break
+    else:
+        print("[* {} is pushed...]".format(event.keysym))
+        return
+
 
 def loop(serversoc, sid, targetid):
     msg = (targetid + '-cmd;action;chime\n').encode('utf-8')
@@ -25,26 +58,6 @@ def loop(serversoc, sid, targetid):
                 print(recv)
         finally :
             pass
-
-        if (keyboard.read_key() == "unknown") :
-            count += 1
-            try :
-                if (count % 2 == 1):
-                    serversoc.send(msg)
-                    lastCommu = datetime.now()
-            except :
-                print('Serverとの通信に失敗しました - 01。再接続します :', datetime.now())
-                break
-
-        # if checkKey() :
-        #     try :
-        #         serversoc.send(msg)
-        #         lastCommu = datetime.now()
-        #     except :
-        #         print('Serverとの通信に失敗しました - 01。再接続します :', datetime.now())
-        #         break
-        #     while checkKey():
-        #         pass
 
         if datetime.now() > lastCommu + timedelta(seconds=60.0) :
             try :
@@ -72,6 +85,7 @@ if __name__ == '__main__':
         try:
             soc.connect(server)
             soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            root.bind('<KeyPress>', keypress)
         except:
             print('serverとの接続に失敗しました - 03。 : %s:%s' % (serverip, serverport))
             soc = None

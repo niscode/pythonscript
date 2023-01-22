@@ -1,3 +1,2 @@
 #!/bin/sh
-python3 ~/pythonscript/auto_chrome.py 1
-
+python3 ~/pythonscript/capf_login_auto.py 1

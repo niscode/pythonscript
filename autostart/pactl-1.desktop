@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=pactl set-default-sink alsa_output.usb-Plantronics_Poly_Sync_20-M_C4392B34309AD84DA68E34EBF082187A-00.analog-stereo
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[ja_JP]=set output device
+Name=set output device
+Comment[ja_JP]=
+Comment=
