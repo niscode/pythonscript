@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import Select
 
 import time
 import argparse
+import sys
 
 parser = argparse.ArgumentParser(description='引数にLogin IDを指定せよ')
 parser.add_argument('id', default="1", help='Set Login ID number for CAPF')
@@ -49,7 +50,16 @@ except:
 driver.find_element(By.XPATH, '//*[@name="btn"]').click()
 
 # 接続を12時間維持
-time.sleep(43200)
+# time.sleep(43200)
+
+# 接続を無限に設定
+while True:
+	try:
+		time.sleep(10)
+	except KeyboardInterrupt :
+		print("コマンドの割り込みにより接続を終了します。")
+		break
 
 # クロームの終了処理
 driver.close()
+sys.exit(1)
