@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 
 
 def loop(serversoc, sid, targetid):
-    msg = (targetid + '-cmd;action;chime\n').encode('utf-8')
+    msg = (targetid + '-cmd;action;chime;From;orin\n').encode('utf-8')
     nopmsg = (targetid + '-cmd;nop\n').encode('utf-8')
     lastCommu = datetime.now()
     count = 0
@@ -27,20 +27,12 @@ def loop(serversoc, sid, targetid):
         finally :
             pass
 
-        # if keyboard.is_pressed("F13"):
-        #     print("a")
-        #     serversoc.send(msg)
-        #     break
-        # else:
-        #     print(keyboard.is_pressed())
-            
-
         if (keyboard.read_key() == "unknown") :
             count += 1
             try :
                 if (count % 2 == 1):
                     times += 1
-                    print("[*] F13 pressed : ", times)
+                    print(f'{datetime.now()} ... [*] F13 pressed : {times}')
                     serversoc.send(msg)
                     lastCommu = datetime.now()
             except :

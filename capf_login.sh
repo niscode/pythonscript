@@ -1,2 +1,2 @@
 #!/bin/sh
-python3 ~/pythonscript/capf_login_auto.py 1
+python3 ~/pythonscript/capf_auto_login.py 1 >> login.log
