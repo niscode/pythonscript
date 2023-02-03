@@ -1,7 +1,11 @@
 #!/bin/sh
+cd ~/
+ln -s pythonscript/login_capf.sh
+ln -s pythonscript/launch_client.sh
+ln -s pythonscript/run_chimeSwitch.sh
+ln -s pythonscript/gitpull_pythonscript.sh
+ln -s pythonscript/get_output.sh
+ln -s pythonscript/get_input.sh
 
-ln -s capf_login.sh ~/
-ln -s launch_client.sh ~/
-ln -s run_chimeSwitch.sh ~/
-ln -s gitpull_pythonscript.sh ~/
-ln -s autostart/get_output.sh ~/
+# move autostart config files
+cp ~/nano_scripts/autostart/* ~/.config/autostart/
