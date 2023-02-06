@@ -17,7 +17,7 @@ id = "CA00" + args.id
 
 # カメラ(マイク)の使用を許可しますか」ダイアログを回避
 options = webdriver.ChromeOptions()
-options.add_argument("--headless")# オプションを指定
+#options.add_argument("--headless")# オプションを指定
 options.add_argument("--use-fake-ui-for-media-stream")# オプションを指定
 
 # Chrome/Chromiumの立ち上げ
