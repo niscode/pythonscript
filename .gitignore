@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 capf_auto_login.py
+launch_client.sh
 Footer
 © 2023 GitHub, Inc.
 Footer navigation
