@@ -6,10 +6,14 @@ import collections
 import time
 from threading import Thread
 import socket
-import sounddevice as sd
+# import sounddevice as sd    # un usefor Jetson
 import tkinter as tk
 import WebSocketCapf as cwebsock
 import json
+
+import requests
+from bs4 import BeautifulSoup
+
 
 def robotCmdSend(ip, port, cmd):
     # ロボットへの送信時にネットワーク異常の場合ブロックが発生してしまう可能性があるので別スレッドで処理する。
@@ -56,7 +60,28 @@ class websocketagent(cwebsock.WebSocketCapf) :
                 print('robotとの通信に失敗しました。', e)
             finally:
                 client.close()
-        print(message)
+        print("[Command from CAPF]   " + message)
+
+        if 'EventInfo' in message:
+            response = requests.get('https://startupside.jp/tokyo/event/')
+            soup = BeautifulSoup(response.text, 'html.parser')
+            # イベント名を取得
+            event_title = soup.find('h3', attrs={'class':'eventBox_title'}).get_text()
+            # 日程を取得   時間は未取得
+            event_date = event_title[event_title.rfind('　')+1:event_title.rfind('催')+1]
+            event_date = event_date.replace("(", "")
+            event_date = event_date.replace(")", "曜日に")
+            
+            event_title = event_title.replace(event_title[event_title.rfind('　'):len(event_title)+1], "")
+            print(event_title)
+            print(event_date)
+            
+            # イベントの種類を取得
+            event_type = soup.find('li', attrs={'class':'eventBox_type'}).get_text()
+            print(event_type)
+            # コマンド内容を書き換え
+            message = (message + ";" + event_title + ";" + event_date + ";" +event_type)
+
         cmd = message.strip()
         robotThread = Thread(target=robotCmdSend,
             args=(self.robotIP, self.robotPort, cmd))
@@ -80,4 +105,3 @@ if __name__ == '__main__' :
 
     while agent.isactive() :
         time.sleep(1)
-    
