@@ -4,12 +4,13 @@
 # sudo apt install -y python3-pip
 # ( pip3 install --upgrade pip )
 
-requests
 selenium
 websocket-client
 pyopenssl
 urllib3
-
+requests
+bs4
+evdev
 
 ### .____ For Jetson / Ubuntu18.04 ____ ###
 # 
@@ -19,7 +20,7 @@ urllib3
 # sudo apt install ./chromium-chromedriver_109.0.5414.74-0ubuntu0.18.04.14_arm64.deb
 
 # sudo apt-get upgrade chromium-browser
-#   -> めっちゃ時間かかる
+#   -> 時間がかかる
 # chromium-browser --version
 #   -> 109以上であれば動くようだ.
 ### ____ for Jetson / Ubuntu18.04 ____. ###
