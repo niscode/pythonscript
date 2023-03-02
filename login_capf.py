@@ -30,21 +30,26 @@ driver.get('https://ignis2.ca-platform.org/login')
 driver.find_element(By.XPATH, '//*[@id="name"]').send_keys(id)
 driver.find_element(By.XPATH, '//*[@id="password"]').send_keys(id)
 
-### orin固有の設定
-# input_device = "Poly Sync 20-M Mono"
-input_device = "Poly Sync 20-M Multichannel"
+# input選択 / Poly Sync用
+input_device1 = "Poly Sync 20-M Analog Mono"
+input_device2 = "Poly Sync 20-M Multichannel"
 output_device1 = "Poly Sync 20-M Analog Stereo"
 output_device2 = "Poly Sync 20-M Digital Stereo (IEC958)"
 
 # 待機して、audioデバイスを選択  input/output_deviceを選択状態にする
 time.sleep(5)
-# Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_index(1)
-Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_visible_text(input_device)
+# inputを選択
+try:
+	Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_visible_text(input_device1)
+except:
+	Select(driver.find_element(By.XPATH, '//*[@id="deviceIdMic"]')).select_by_visible_text(input_device2)
+
+
 try:
 	Select(driver.find_element(By.XPATH, '//*[@id="deviceIdSpk"]')).select_by_visible_text(output_device1)
-#except NotFoundOutputDeviceError as e:
 except:
 	Select(driver.find_element(By.XPATH, '//*[@id="deviceIdSpk"]')).select_by_visible_text(output_device2)
+
 
 # ログインボタン入力
 driver.find_element(By.XPATH, '//*[@name="btn"]').click()

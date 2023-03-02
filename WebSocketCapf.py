@@ -57,7 +57,16 @@ class WebSocketCapf() :
     def send(self, message) :
         #print("SEND :", message)
         #print(self.wss.sock.connected)
-        self.wss.send(message)
+        # self.wss.send(message)
+
+        if not self.isactive() :
+            print("reconnect")
+            self.connect()
+        if self.isactive():
+            self.wss.send(message)
+        else :
+            print('cannnot send')
+
 
     def connect(self) :
         def on_message(ws, message) :

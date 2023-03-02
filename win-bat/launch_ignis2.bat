@@ -1,1 +1,0 @@
-python \capf\pythonscript\client.py CA002 ignis2-sock.ca-platform.org 11001 192.168.10.2 5001

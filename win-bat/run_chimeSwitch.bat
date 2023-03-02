@@ -1,1 +1,0 @@
-python \capf\pythonscript\ChimeSwitch.py CA000 ignis2-sock.ca-platform.org 11001 CA010
