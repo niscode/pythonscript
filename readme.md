@@ -1,4 +1,4 @@
-### 事前にライブラリをインポート
+## 事前にライブラリをインポート
 - `pip install -r requirements.txt`
 
 #### 以下のpythonモジュールを使用します。3系です。
@@ -10,8 +10,8 @@
     - bs4
     - evdev
 
-### 第2期 Jetson-Nano 用にカスタマイズ
-#### websocket経由でCAPFとの接続が可能です。
+## 第2期 Jetson-Nano 用にカスタマイズ
+#### websocket経由でCAPFとの接続が可能になりました。〔2023.3.1〕
 
     launch_ws.sh を実行すると webagent.py が起動し、
     ペアとなるSOTA / ペアとなるOP を指定し、CAPFに接続します。
