@@ -14,7 +14,7 @@
 #### websocket経由でCAPFとの接続が可能です。
 
     launch_ws.sh を実行すると webagent.py が起動し、
-    CAPF / ペアのSOTA / ペアのOP にそれぞれ接続します。
+    ペアとなるSOTA / ペアとなるOP を指定し、CAPFに接続します。
 
 1. CAPFコマンドの中継機能<br>
     CAPFからのコマンドを websocekt で受け取り、<br>
