@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=./get_input.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=set_input
+Name=set_input
+Comment[en_US]=
+Comment=

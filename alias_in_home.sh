@@ -10,11 +10,4 @@ ln -s pythonscript/get_input.sh
 echo "エイリアスの作成が終了しました。"
 
 # move autostart config files
-# cp ~/pythonscript/autostart/* ~/.config/autostart/
-
-# echo "続いてpythonライブラリを取得します。"
-# cd ~/pythonscript/
-# sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
-# sudo apt install -y python3-pip
-# pip3 install --upgrade pip
-# pip3 install -r requirements.txt
+cp ~/pythonscript/autostart/* ~/.config/autostart/

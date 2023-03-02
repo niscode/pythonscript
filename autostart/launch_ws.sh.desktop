@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=./launch_ws.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=auto_client
+Name=auto_client
+Comment[en_US]=
+Comment=

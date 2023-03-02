@@ -1,7 +1,13 @@
 ## Startup Applicationsで実行するスクリプト
-### Ubuntu 20.04向け
+### Ubuntu向け
 
-以下にファイルを配置
-~/.config/autostart/
+▼ 以下のディレクトリにファイルを配置
 
-get_output.sh は不要
+`~/.config/autostart/`
+
+- capf_login.sh.desktop
+- gitpull.sh.desktop
+- vino-server.desktop
+- get_input.sh.desktop
+- launch_ws.sh.desktop
+- get_output.sh.desktop
