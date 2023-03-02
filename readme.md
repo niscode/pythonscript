@@ -16,14 +16,14 @@
     launch_ws.sh を実行すると webagent.py が起動し、
     ペアとなるSOTA / ペアとなるOP を指定し、CAPFに接続します。
 
-1. CAPFコマンドの中継機能<br>
+1. <strong>CAPFコマンドの中継機能</strong><br>
     CAPFからのコマンドを websocekt で受け取り、<br>
     ペアのSOTAに対し TCP-socket でコマンドを送ります。
 
-2. USBボタン信号の送信機能<br>
+2. <strong>USBボタン信号の送信機能</strong><br>
     接続されたUSBボタンが押下された際、<br>
     指定されたペアのOP宛の指令値として、<br>
     websocket 経由でCAPFにコマンドを発行します。
 
-3. コマンド受信機能<br>
+3. <strong>コマンド受信機能</strong><br>
     websocket経由でCAPFからのコマンドを受け取ります。
