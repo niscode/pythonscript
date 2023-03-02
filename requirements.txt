@@ -3,6 +3,7 @@
 # sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
 # sudo apt install -y python3-pip
 # ( pip3 install --upgrade pip )
+# pip3 install -r requirements.txt
 
 selenium
 websocket-client
@@ -13,6 +14,7 @@ bs4
 evdev
 
 # if you need >> $ pip3 install --upgrade requests
+
 
 ### .____ Chromium Setup For Jetson / Ubuntu18.04 ____ ###
 # 
