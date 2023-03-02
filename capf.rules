@@ -1,0 +1,8 @@
+# set the udev rule , make the device_port be fixed
+
+# $ cat /proc/bus/input/devices
+# $ udevadm info -a /sys/class/input/event2
+
+# USB Button (KOSUGI GIKEN)
+KERNEL=="event*", SUBSYSTEM=="input", ATTRS{product}=="KOSUGI. USB F.Switch", MODE="0777", SYMLINK+="input/callButton"
+# ATTRS{idVendor}=="0f74", ATTRS{idProduct}=="5005",

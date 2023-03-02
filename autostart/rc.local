@@ -1,3 +1,0 @@
-#!/bin/sh
-cd /home/orin/pythonscript/ && git pull origin main;
-sudo python3 ChimeSwitch_Linux.py CA000 ignis2-sock.ca-platform.org 11001 CA010
