@@ -24,7 +24,9 @@ options.add_argument("--use-fake-ui-for-media-stream")# オプションを指定
 driver=webdriver.Chrome(options=options)
 
 # ページ接続
-driver.get('https://ignis2.ca-platform.org/login')
+# driver.get('https://ignis2.ca-platform.org/login')
+driver.get('https://atr-dev02.ca-platform.org/login')
+
 
 # キー入力
 driver.find_element(By.XPATH, '//*[@id="name"]').send_keys(id)

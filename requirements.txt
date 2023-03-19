@@ -17,14 +17,10 @@ evdev
 
 
 ### .____ Chromium Setup For Jetson / Ubuntu18.04 ____ ###
-# 
-## [このパート不要説]
-# sudo apt install -y curl
-# curl -O http://launchpadlibrarian.net/646045586/chromium-chromedriver_109.0.5414.74-0ubuntu0.18.04.14_arm64.deb
-# sudo apt install ./chromium-chromedriver_109.0.5414.74-0ubuntu0.18.04.14_arm64.deb
-
-# sudo apt-get upgrade chromium-browser
+# $ sudo apt-get upgrade chromium-browser
 #   -> 時間がかかる
-# chromium-browser --version
+# $ chromium-browser --version
 #   -> 109以上であれば動くようだ.
+# $ sudo apt install chromium-chromedriver
+# $ sudo apt install python3-selenium
 ### ____ for Jetson / Ubuntu18.04 ____. ###
