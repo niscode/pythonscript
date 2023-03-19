@@ -105,7 +105,7 @@ class websocketagent(cwebsock.WebSocketCapf) :
             if event.type == evdev.ecodes.EV_KEY:
                 if event.value == 1:
                     if event.code == 183:
-                        print("[USB Button] - pushed!")
+                        print('\033[36m' + "[USB Button] - pushed!" + '\033[0m')
                         jsonparam = {'id' : self.selfID}
                         jsoncmd = {'cmd' : 'bell', 'param' : json.dumps(jsonparam)}
                         jsonmsg = {'targets' : [self.targetID], 'message' : json.dumps(jsoncmd)}
